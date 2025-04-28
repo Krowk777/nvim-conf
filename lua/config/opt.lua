@@ -23,6 +23,6 @@ vim.opt.showmode = false
 vim.opt.signcolumn = 'yes'
 
 vim.opt.mouse = 'a'
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 200
 vim.opt.undofile = true
-vim.opt.updatetime = 200
+vim.opt.updatetime = 100
