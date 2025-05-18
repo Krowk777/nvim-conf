@@ -1,5 +1,5 @@
 local opts = {
-    ensure_installed = { "c", "c_sharp", "lua", "markdown", "markdown_inline", "go", "java", "javascript", "typescript" },
+    ensure_installed = { "c", "c_sharp", "lua", "markdown", "markdown_inline", "go", "java", "javascript", "typescript", "terraform" },
     sync_install = false,
     auto_install = false,
     highlight = {
