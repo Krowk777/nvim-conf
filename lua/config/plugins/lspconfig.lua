@@ -82,16 +82,24 @@ local dependencies = {
         'stevearc/conform.nvim',
         opts = {
             formatters_by_ft = {
+                sh = { 'shfmt' },
                 python = { 'black' },
+
                 javascript = { 'prettier' },
+                typescript = { 'prettier' },
+                html = { 'prettier' },
+                css = { 'prettier' },
+                scss = { 'prettier' },
+                less = { 'prettier' },
+                json = { 'prettier' },
                 yaml = { 'prettier' },
-                sh = { 'shfmt' }
+                markdown = { 'prettier' },
             },
             default_format_opts = {
                 lsp_format = 'fallback',
             },
             format_on_save = {
-                timeout_ms = 1000,
+                timeout_ms = 800,
                 lsp_format = 'fallback',
             },
         },
