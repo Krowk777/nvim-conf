@@ -3,7 +3,7 @@ local opts = {
         "c", "cpp", "c_sharp", "lua", "python",
         "markdown", "markdown_inline", "go", "java",
         "javascript", "typescript", "terraform",
-        "html", "css", "json",
+        "html", "css", "json", "yaml",
     },
     sync_install = false,
     auto_install = false,
