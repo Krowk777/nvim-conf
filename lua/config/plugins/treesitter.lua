@@ -1,9 +1,9 @@
 local opts = {
     ensure_installed = {
-        "c", "cpp", "c_sharp", "lua", "python",
-        "markdown", "markdown_inline", "go", "java",
-        "javascript", "typescript", "terraform",
-        "html", "css", "json", "yaml",
+        'c', 'cpp', 'c_sharp', 'lua', 'python', 'bash',
+        'markdown', 'markdown_inline', 'go', 'java',
+        'javascript', 'typescript', 'terraform',
+        'html', 'css', 'json', 'yaml',
     },
     sync_install = false,
     auto_install = false,
