@@ -6,25 +6,11 @@ local handle_lsp_attach = function(args)
     pcall(function()
         vim.keymap.del('n', '<C-r>')
     end)
-
-    local group = vim.api.nvim_create_augroup('autoformat', { clear = false })
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        buffer = args.buf,
-        callback = function()
-            pcall(function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-            end)
-        end,
-        group = group
-    })
 end
 
 local handle_lsp_detach = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then return end
-
-    local group = vim.api.nvim_create_augroup('autoformat', { clear = false })
-    vim.api.nvim_clear_autocmds({ group = group, buffer = args.buf })
 end
 
 local set_keymaps = function()
@@ -61,7 +47,7 @@ local config = function()
         automatic_enable = true,
         ensure_installed = {
             'clangd', 'gopls', 'jdtls', 'lua_ls',
-            'omnisharp', 'terraformls', 'pyright', 'ts_ls', 'jsonls',
+            'omnisharp', 'terraformls', 'basedpyright', 'ts_ls', 'jsonls',
             'html', 'cssls',
         },
     })
@@ -91,7 +77,24 @@ local dependencies = {
             },
         },
     },
-    'nvim-telescope/telescope.nvim'
+    'nvim-telescope/telescope.nvim',
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            formatters_by_ft = {
+                python = { "black" },
+                javascript = { "prettier" },
+                yaml = { "prettier" },
+            },
+            default_format_opts = {
+                lsp_format = "fallback",
+            },
+            format_on_save = {
+                timeout_ms = 1000,
+                lsp_format = "fallback",
+            },
+        },
+    }
 }
 
 return {
